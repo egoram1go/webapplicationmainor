@@ -49,6 +49,7 @@ README.md
    npm install
    npm run dev
 4. Run the frontend:
-  cd client
-  npm install
-  npm run dev
+   ```bash
+   cd client
+   npm install
+   npm run dev
