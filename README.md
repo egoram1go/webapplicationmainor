@@ -1,10 +1,8 @@
-# ✅ TaskFlow - Task Manager Web Application
+# TaskFlow - Task Manager Web Application
 
 TaskFlow is a modern, responsive web application that helps users organize their tasks, boost productivity, and track their progress in a simple and effective way. Create to-dos, categorize them, set deadlines, and never lose track of what matters.
 
----
-
-## 🚀 Features
+## Features
 
 - User authentication (Sign up / Log in / Log out)
 - Responsive, clean dashboard for task overview
@@ -14,9 +12,7 @@ TaskFlow is a modern, responsive web application that helps users organize their
 - Search and filter tasks by keyword, tag, or status
 - Light and dark mode toggle (optional)
 
----
-
-## 📌 User Stories
+## User Stories
 
 1. **As a user**, I want to **create an account and log in**, so that I can access personalized features and save my progress.
 
@@ -28,9 +24,7 @@ TaskFlow is a modern, responsive web application that helps users organize their
 
 5. **As a user**, I want to **search and filter through data/content**, so that I can quickly find what I’m looking for without scrolling through everything.
 
----
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend**: React.js, Tailwind CSS
 - **Backend**: Node.js, Express.js
@@ -38,20 +32,14 @@ TaskFlow is a modern, responsive web application that helps users organize their
 - **Auth**: JWT & bcrypt
 - **Deployment**: Vercel / Netlify (frontend), Render / Railway (backend)
 
----
-
-## 📂 Project Structure
+## Project Structure
 
 /client # React frontend
 /server # Express backend
 .env # Environment variables
 README.md
 
-# Project documentation
-
----
-
-## 🧪 Setup Instructions
+## Setup Instructions
 
 1. Clone the repository
 2. Set up `.env` files in both `/client` and `/server`
