@@ -22,3 +22,9 @@ TaskFlow is a modern, responsive web application that helps users organize their
 
 README.md
 
+## How to start project
+
+```
+docker-compose build
+docker-compose up 
+```
