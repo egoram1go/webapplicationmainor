@@ -53,8 +53,6 @@ public class TaskService {
 
     public Optional<Task> removeFromCart(Long id) {
         return taskRepository.findById(id).map(task -> {
-            // Decide what status to set when removing from cart
-            // For example, set it back to TODO
             task.setStatus(Status.TODO);
             return taskRepository.save(task);
         });
@@ -69,22 +67,8 @@ public class TaskService {
 
     public Optional<Task> removeFromOffered(Long id) {
         return taskRepository.findById(id).map(task -> {
-            // Decide what status to set when removing from offered
-            // For example, set it back to TODO
             task.setStatus(Status.TODO);
             return taskRepository.save(task);
         });
-    }
-
-    // Additional helper methods for status management
-    public Optional<Task> updateStatus(Long id, Status status) {
-        return taskRepository.findById(id).map(task -> {
-            task.setStatus(status);
-            return taskRepository.save(task);
-        });
-    }
-
-    public List<Task> getTasksByStatus(Status status) {
-        return taskRepository.findByStatus(status);
     }
 }

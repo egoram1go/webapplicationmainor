@@ -13,8 +13,6 @@ import java.util.Optional;
 public class UserService {
     private final UserRepository repo;
     public UserService(UserRepository repo) { this.repo = repo; }
-    public Optional<User> findByUsername(String username) { return repo.findByUsername(username); }
-    public Optional<User> findById(Long userId) { return repo.findById(userId); }
     public User save(User user) { return repo.save(user); }
 
     public Optional<User> findByEmail(String email) {

@@ -13,20 +13,14 @@ import java.util.Optional;
 public class CommentService {
     private final CommentRepository commentRepository;
     private final TaskRepository taskRepository;
-    private final UserRepository userRepository;
 
-    public CommentService(CommentRepository commentRepository, TaskRepository taskRepository, UserRepository userRepository) {
+    public CommentService(CommentRepository commentRepository, TaskRepository taskRepository) {
         this.commentRepository = commentRepository;
         this.taskRepository = taskRepository;
-        this.userRepository = userRepository;
     }
 
     public Optional<Task> getTaskById(Long id) {
         return taskRepository.findById(id);
-    }
-
-    public Optional<User> getUserById(Long id) {
-        return userRepository.findById(id);
     }
 
     public Comment createComment(Comment comment) {

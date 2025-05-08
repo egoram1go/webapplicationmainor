@@ -51,13 +51,6 @@ export const authApi = {
   
   register: (registerRequest: RegisterRequest) =>
     api.post<AuthResponse>("/auth/signup", registerRequest),
-  
-  getCurrentUser: () => 
-    api.get<AuthResponse>("/auth/me", {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("accessToken")}`
-      }
-    }),
 };
 
 export const tasksApi = {

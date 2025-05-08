@@ -102,16 +102,4 @@ public class AuthController {
                 "Login successful"
         ));
     }
-
-    @GetMapping("/me")
-    public ResponseEntity<UserResponseDto> getCurrentUser(@AuthenticationPrincipal UserPrincipal userPrincipal) {
-        if (userPrincipal == null) {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
-        }
-
-        User user = userService.findById(userPrincipal.getId())
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
-
-        return ResponseEntity.ok(modelMapper.map(user, UserResponseDto.class));
-    }
 }

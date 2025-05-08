@@ -33,25 +33,34 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             String jwt = getJwtFromRequest(request);
             logger.info("JWT from request: " + jwt);
 
-            if (StringUtils.hasText(jwt) && tokenProvider.validateToken(jwt)) {
-                Long userId = tokenProvider.getUserIdFromToken(jwt);
-                logger.info("Extracted user ID from token: " + userId);
+            if (StringUtils.hasText(jwt)) {
+                if (tokenProvider.validateToken(jwt)) {
+                    Long userId = tokenProvider.getUserIdFromToken(jwt);
+                    logger.info("Extracted user ID from token: " + userId);
 
-                UserDetails userDetails = customUserDetailsService.loadUserById(userId);
-                logger.info("Loaded user details: " + userDetails.getUsername());
+                    UserDetails userDetails = customUserDetailsService.loadUserById(userId);
+                    logger.info("Loaded user details: " + userDetails.getUsername());
 
-                UsernamePasswordAuthenticationToken authentication =
-                        new UsernamePasswordAuthenticationToken(
-                                userDetails, null, userDetails.getAuthorities());
-                authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+                    UsernamePasswordAuthenticationToken authentication =
+                            new UsernamePasswordAuthenticationToken(
+                                    userDetails, null, userDetails.getAuthorities());
+                    authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
 
-                SecurityContextHolder.getContext().setAuthentication(authentication);
-                logger.info("Authentication set in security context for user ID: " + userId);
+                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                    logger.info("Authentication set in security context for user ID: " + userId);
+                } else {
+                    logger.warn("Invalid JWT token");
+                    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Invalid JWT token");
+                    return;
+                }
             } else {
-                logger.warn("No valid JWT token found");
+                logger.warn("No JWT token found");
+                // Let the security chain continue - authentication entry point will handle it
             }
         } catch (Exception ex) {
             logger.error("Could not set user authentication in security context", ex);
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Authentication failed");
+            return;
         }
 
         filterChain.doFilter(request, response);
