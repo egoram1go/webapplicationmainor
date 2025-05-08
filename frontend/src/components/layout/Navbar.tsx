@@ -80,12 +80,6 @@ const Navbar: React.FC = () => {
                   <div className="px-4 py-1 text-xs text-gray-500 dark:text-gray-400">
                     {user.email}
                   </div>
-                  <DropdownMenuItem asChild>
-                    <Link to="/profile" className="cursor-pointer">
-                      <User className="mr-2 h-4 w-4" />
-                      <span>Profile</span>
-                    </Link>
-                  </DropdownMenuItem>
                   <DropdownMenuItem 
                     onClick={logout}
                     className="text-red-600 dark:text-red-400 cursor-pointer"

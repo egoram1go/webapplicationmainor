@@ -120,15 +120,6 @@ const Sidebar: React.FC = () => {
             collapsed={collapsed}
           />
         </nav>
-        
-        <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-          <NavItem
-            to="/settings"
-            icon={<Settings size={20} />}
-            label="Settings"
-            collapsed={collapsed}
-          />
-        </div>
       </div>
     </aside>
   );

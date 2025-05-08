@@ -20,8 +20,7 @@ import Dashboard from "./pages/Dashboard";
 import TasksPage from "./pages/tasks/TasksPage";
 import TaskDetailPage from "./pages/tasks/TaskDetailPage";
 import CartPage from "./pages/tasks/CartPage";
-import OfferedPage from "./pages/tasks/OfferedPage"; // Fixed import path
-import Profile from "./pages/Profile";
+import OfferedPage from "./pages/tasks/OfferedPage";
 import NotFound from "./pages/NotFound";
 import { TaskStatus } from "./types";
 
@@ -68,7 +67,6 @@ const App = () => (
                   <Route path="tasks/:id" element={<TaskDetailPage />} />
                   <Route path="cart" element={<CartPage />} />
                   <Route path="offered" element={<OfferedPage />} />
-                  <Route path="profile" element={<Profile />} />
                 </Route>
 
                 {/* Catch-all route */}
