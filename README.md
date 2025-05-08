@@ -24,7 +24,12 @@ README.md
 
 ## How to start project
 
+If there no wrapper
 ```
+gradle wrapper
+```
+```
+.\gradlew clean build
 docker-compose build
 docker-compose up 
 ```
