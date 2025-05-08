@@ -17,6 +17,7 @@ TaskFlow is a modern, responsive web application that helps users organize their
 ## Project Structure
 
 /frontend # React frontend
+
 /backend # Java Spring Boot backend
 
 README.md
