@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useTheme } from "../../context/ThemeContext";
 import { Button } from "@/components/ui/button";
-import { Sun, Moon, Bell, Search, User } from "lucide-react";
+import { Sun, Moon, User } from "lucide-react";
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
@@ -24,20 +24,7 @@ const Navbar: React.FC = () => {
               </span>
             </Link>
           </div>
-          
-          <div className="flex-1 max-w-md mx-4 hidden md:block">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-gray-400" />
-              </div>
-              <input
-                type="text"
-                placeholder="Search tasks..."
-                className="block w-full pl-10 pr-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-50 dark:bg-gray-700 text-sm text-gray-900 dark:text-gray-100"
-              />
-            </div>
-          </div>
-          
+
           <div className="flex items-center space-x-4">
             <Button
               variant="ghost"
@@ -51,15 +38,6 @@ const Navbar: React.FC = () => {
               ) : (
                 <Moon className="h-5 w-5" />
               )}
-            </Button>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              className="rounded-full"
-              aria-label="Notifications"
-            >
-              <Bell className="h-5 w-5" />
             </Button>
             
             {user && (
