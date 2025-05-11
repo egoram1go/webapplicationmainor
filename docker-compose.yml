@@ -30,9 +30,6 @@ services:
       - "8080:8080"
     networks:
       - taskflow-net
-    entrypoint: ["./wait-for-it.sh", "postgres:5432", "--", "java", "-jar", "app.jar"]
-    volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
 
   frontend:
     build:
@@ -45,11 +42,6 @@ services:
       - "3000:80"
     networks:
       - taskflow-net
-    environment:
-      - NODE_ENV=production
-    volumes:
-      - ./frontend:/app
-      - /app/node_modules
 
 volumes:
   pgdata:
